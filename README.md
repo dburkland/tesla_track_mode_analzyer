@@ -7,9 +7,9 @@ I built a simple data pipeline along with a few Grafana dashboards to better vis
 
 * Model 3 Dashboard
   * Model 3 Performance - Session View
-    * (Model-3-Performance-1.png)
+    * ![Model 3 Performance - Session View](Model-3-Performance-1.png)
   * Model 3 Performance - Lap View 1 of 3
-    * (Model-3-Performance-2.png)
+    * ![Model 3 Performance - Lap View 1 of 3](Model-3-Performance-2.png)
 ![Model 3 Performance - Lap View 1 of 3](Model-3-Performance-2.png)
 ![Model 3 Performance - Lap View 2 of 3](Model-3-Performance-3.png)
 ![Model 3 Performance - Lap View 3 of 3](Model-3-Performance-4.png)
