@@ -55,7 +55,12 @@ I built a simple data pipeline along with a few Grafana dashboards to better vis
     ```
   * Grafana Initialization
     * Login to Grafana
-    * Create the PostgreSQL datasource
+    * Create the PostgreSQL datasource using the following settings:
+      * Name: PostgreSQL
+      * Host: postgresql:5432
+      * User: postgres
+      * Password: <Enter the appropriate password here>
+      * TLS/SSL Mode: disable
     * Import the dashboards
 * Track Mode Data Importer
   * Install the required Python modules
@@ -87,4 +92,13 @@ I built a simple data pipeline along with a few Grafana dashboards to better vis
   
 ### FAQs
 
-* 
+* Why is the time range always set to "2024-01-01 18:00:34 to 2024-01-01 18:02:20"?
+  * This is done on purprose and allows Grafana to overlay lap data without having to change the time series values.
+* What should I do if the Track Mode Data Importer fails?
+  * You can drop the appropriate event table from the PostgreSQL database using the following commands:
+    ```bash
+    docker exec -i postgresql psql -U postgres -d tesla_track_db <<EOSQL
+    DROP TABLE <Enter the approrpiate event name here>;
+    EOSQL
+    ```
+  * You can then re-run the Track Mode Data Importer script again.

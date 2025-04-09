@@ -26,8 +26,12 @@ def process_csv(filename, pg_hostname, pg_username, pg_password, table_name, mot
         print(f"No data to process in {filename}. Skipping this file.")
         return
 
-    # Add session column
-    df['session'] = os.path.splitext(filename)[0]
+    # Add session column (convert to integer if possible, or adjust table schema later)
+    session_value = os.path.splitext(filename)[0]  # e.g., "1" from "1.csv"
+    try:
+        df['session'] = int(session_value)  # Convert to integer
+    except ValueError:
+        df['session'] = session_value  # Keep as string if conversion fails
     print("Session column added")
 
     # Reorder columns to put 'session' as the leftmost column
@@ -79,85 +83,84 @@ def process_csv(filename, pg_hostname, pg_username, pg_password, table_name, mot
     try:
         with conn.cursor() as cursor:
             if motor_count == 2:
-              # Here, we use the table_name argument to dynamically create or check for the table
-              cursor.execute(f"""
-                  CREATE TABLE IF NOT EXISTS {table_name} (
-                      time TIMESTAMP,
-                      session INTEGER,
-                      lap INTEGER,
-                      elapsed_time INTEGER,
-                      speed FLOAT,
-                      latitude FLOAT,
-                      longitude FLOAT,
-                      lateral_acceleration FLOAT,
-                      longitudinal_acceleration FLOAT,
-                      throttle_position FLOAT,
-                      brake_pressure FLOAT,
-                      steering_angle FLOAT,
-                      steering_angle_rate FLOAT,
-                      yaw_rate FLOAT,
-                      power_level FLOAT,
-                      state_of_charge FLOAT,
-                      tire_pressure_front_left FLOAT,
-                      tire_pressure_front_right FLOAT,
-                      tire_pressure_rear_left FLOAT,
-                      tire_pressure_rear_right FLOAT,
-                      brake_temperature_front_left FLOAT,
-                      brake_temperature_front_right FLOAT,
-                      brake_temperature_rear_left FLOAT,
-                      brake_temperature_rear_right FLOAT,
-                      front_inverter_temp FLOAT,
-                      rear_inverter_temp FLOAT,
-                      battery_temp FLOAT,
-                      tire_slip_front_left FLOAT,
-                      tire_slip_front_right FLOAT,
-                      tire_slip_rear_left FLOAT,
-                      tire_slip_rear_right FLOAT      
-                  )
-              """)
+                cursor.execute(f"""
+                    CREATE TABLE IF NOT EXISTS {table_name} (
+                        time TIMESTAMP,
+                        session INTEGER,
+                        lap INTEGER,
+                        elapsed_time INTEGER,
+                        speed FLOAT,
+                        latitude FLOAT,
+                        longitude FLOAT,
+                        lateral_acceleration FLOAT,
+                        longitudinal_acceleration FLOAT,
+                        throttle_position FLOAT,
+                        brake_pressure FLOAT,
+                        steering_angle FLOAT,
+                        steering_angle_rate FLOAT,
+                        yaw_rate FLOAT,
+                        power_level FLOAT,
+                        state_of_charge FLOAT,
+                        tire_pressure_front_left FLOAT,
+                        tire_pressure_front_right FLOAT,
+                        tire_pressure_rear_left FLOAT,
+                        tire_pressure_rear_right FLOAT,
+                        brake_temperature_front_left FLOAT,
+                        brake_temperature_front_right FLOAT,
+                        brake_temperature_rear_left FLOAT,
+                        brake_temperature_rear_right FLOAT,
+                        front_inverter_temp FLOAT,
+                        rear_inverter_temp FLOAT,
+                        battery_temp FLOAT,
+                        tire_slip_front_left FLOAT,
+                        tire_slip_front_right FLOAT,
+                        tire_slip_rear_left FLOAT,
+                        tire_slip_rear_right FLOAT      
+                    )
+                """)
             elif motor_count == 3:
-              # Here, we use the table_name argument to dynamically create or check for the table
-              cursor.execute(f"""
-                  CREATE TABLE IF NOT EXISTS {table_name} (
-                      time TIMESTAMP,
-                      session INTEGER,
-                      lap INTEGER,
-                      elapsed_time INTEGER,
-                      speed FLOAT,
-                      latitude FLOAT,
-                      longitude FLOAT,
-                      lateral_acceleration FLOAT,
-                      longitudinal_acceleration FLOAT,
-                      throttle_position FLOAT,
-                      brake_pressure FLOAT,
-                      steering_angle FLOAT,
-                      steering_angle_rate FLOAT,
-                      yaw_rate FLOAT,
-                      power_level FLOAT,
-                      state_of_charge FLOAT,
-                      tire_pressure_front_left FLOAT,
-                      tire_pressure_front_right FLOAT,
-                      tire_pressure_rear_left FLOAT,
-                      tire_pressure_rear_right FLOAT,
-                      brake_temperature_front_left FLOAT,
-                      brake_temperature_front_right FLOAT,
-                      brake_temperature_rear_left FLOAT,
-                      brake_temperature_rear_right FLOAT,
-                      front_inverter_temp FLOAT,
-                      rear_left_inverter_temp FLOAT,
-                      rear_right_inverter_temp FLOAT,
-                      battery_temp FLOAT,
-                      tire_slip_front_left FLOAT,
-                      tire_slip_front_right FLOAT,
-                      tire_slip_rear_left FLOAT,
-                      tire_slip_rear_right FLOAT      
-                  )
-              """)
-              print(f"Created {table_name} table if not existed")
+                cursor.execute(f"""
+                    CREATE TABLE IF NOT EXISTS {table_name} (
+                        time TIMESTAMP,
+                        session INTEGER,
+                        lap INTEGER,
+                        elapsed_time INTEGER,
+                        speed FLOAT,
+                        latitude FLOAT,
+                        longitude FLOAT,
+                        lateral_acceleration FLOAT,
+                        longitudinal_acceleration FLOAT,
+                        throttle_position FLOAT,
+                        brake_pressure FLOAT,
+                        steering_angle FLOAT,
+                        steering_angle_rate FLOAT,
+                        yaw_rate FLOAT,
+                        power_level FLOAT,
+                        state_of_charge FLOAT,
+                        tire_pressure_front_left FLOAT,
+                        tire_pressure_front_right FLOAT,
+                        tire_pressure_rear_left FLOAT,
+                        tire_pressure_rear_right FLOAT,
+                        brake_temperature_front_left FLOAT,
+                        brake_temperature_front_right FLOAT,
+                        brake_temperature_rear_left FLOAT,
+                        brake_temperature_rear_right FLOAT,
+                        front_inverter_temp FLOAT,
+                        rear_left_inverter_temp FLOAT,
+                        rear_right_inverter_temp FLOAT,
+                        battery_temp FLOAT,
+                        tire_slip_front_left FLOAT,
+                        tire_slip_front_right FLOAT,
+                        tire_slip_rear_left FLOAT,
+                        tire_slip_rear_right FLOAT      
+                    )
+                """)
+            conn.commit()  # Commit the table creation
+            print(f"Created table {table_name} if it did not exist")
     except Exception as e:
         print(f"Error creating table: {e}")
         conn.close()
-        return
+        return  # Exit if table creation fails
 
     # Copy data from CSV to PostgreSQL
     try:
@@ -167,6 +170,8 @@ def process_csv(filename, pg_hostname, pg_username, pg_password, table_name, mot
             print(f"Data from {new_filename} has been successfully copied to the database in table {table_name}")
     except Exception as e:
         print(f"Error copying data to PostgreSQL: {e}")
+        conn.close()
+        return
     
     conn.close()
 
@@ -181,11 +186,14 @@ if __name__ == "__main__":
     pg_username = sys.argv[2]
     pg_password = sys.argv[3]
     table_name = sys.argv[4]
-    motor_count = sys.argv[5]
+    motor_count = int(sys.argv[5])  # Convert motor_count to integer
     
-    # Process each CSV file
-    for i in range(1, 5):
-        filename = f"{i}.csv"
-        process_csv(filename, pg_hostname, pg_username, pg_password, table_name, motor_count)
+    filename = "1.csv"
+    process_csv(filename, pg_hostname, pg_username, pg_password, table_name, motor_count)
+
+    # # Process each CSV file (uncomment if needed)
+    # for i in range(1, 5):
+    #     filename = f"{i}.csv"
+    #     process_csv(filename, pg_hostname, pg_username, pg_password, table_name, motor_count)
 
     print("All files processed.")

@@ -85,7 +85,7 @@
             {
               "datasource": {
                 "type": "postgres",
-                "uid": "UxCzEGNNz"
+                "name": "PostgreSQL"
               },
               "format": "table",
               "group": [],
@@ -168,7 +168,7 @@
             {
               "datasource": {
                 "type": "postgres",
-                "uid": "UxCzEGNNz"
+                "name": "PostgreSQL"
               },
               "format": "table",
               "group": [],
@@ -255,7 +255,7 @@
             {
               "datasource": {
                 "type": "postgres",
-                "uid": "UxCzEGNNz"
+                "name": "PostgreSQL"
               },
               "format": "table",
               "group": [],
@@ -337,7 +337,7 @@
             {
               "datasource": {
                 "type": "postgres",
-                "uid": "UxCzEGNNz"
+                "name": "PostgreSQL"
               },
               "format": "table",
               "group": [],
@@ -588,7 +588,7 @@
             {
               "datasource": {
                 "type": "postgres",
-                "uid": "UxCzEGNNz"
+                "name": "PostgreSQL"
               },
               "format": "time_series",
               "group": [],
@@ -621,7 +621,7 @@
             {
               "datasource": {
                 "type": "postgres",
-                "uid": "UxCzEGNNz"
+                "name": "PostgreSQL"
               },
               "format": "time_series",
               "group": [],
@@ -654,7 +654,7 @@
             {
               "datasource": {
                 "type": "postgres",
-                "uid": "UxCzEGNNz"
+                "name": "PostgreSQL"
               },
               "format": "time_series",
               "group": [],
@@ -687,7 +687,7 @@
             {
               "datasource": {
                 "type": "postgres",
-                "uid": "UxCzEGNNz"
+                "name": "PostgreSQL"
               },
               "format": "time_series",
               "group": [],
@@ -770,7 +770,7 @@
             {
               "datasource": {
                 "type": "postgres",
-                "uid": "UxCzEGNNz"
+                "name": "PostgreSQL"
               },
               "format": "table",
               "group": [],
@@ -857,7 +857,7 @@
             {
               "datasource": {
                 "type": "postgres",
-                "uid": "UxCzEGNNz"
+                "name": "PostgreSQL"
               },
               "format": "table",
               "group": [],
@@ -945,7 +945,7 @@
             {
               "datasource": {
                 "type": "postgres",
-                "uid": "UxCzEGNNz"
+                "name": "PostgreSQL"
               },
               "format": "table",
               "group": [],
@@ -1033,7 +1033,7 @@
             {
               "datasource": {
                 "type": "postgres",
-                "uid": "UxCzEGNNz"
+                "name": "PostgreSQL"
               },
               "format": "table",
               "group": [],
@@ -1120,7 +1120,7 @@
             {
               "datasource": {
                 "type": "postgres",
-                "uid": "UxCzEGNNz"
+                "name": "PostgreSQL"
               },
               "format": "table",
               "group": [],
@@ -1227,7 +1227,7 @@
             {
               "datasource": {
                 "type": "postgres",
-                "uid": "UxCzEGNNz"
+                "name": "PostgreSQL"
               },
               "format": "time_series",
               "group": [],
@@ -1260,7 +1260,7 @@
             {
               "datasource": {
                 "type": "postgres",
-                "uid": "UxCzEGNNz"
+                "name": "PostgreSQL"
               },
               "format": "time_series",
               "group": [],
@@ -1293,7 +1293,7 @@
             {
               "datasource": {
                 "type": "postgres",
-                "uid": "UxCzEGNNz"
+                "name": "PostgreSQL"
               },
               "format": "time_series",
               "group": [],
@@ -1326,7 +1326,7 @@
             {
               "datasource": {
                 "type": "postgres",
-                "uid": "UxCzEGNNz"
+                "name": "PostgreSQL"
               },
               "format": "time_series",
               "group": [],
@@ -1426,7 +1426,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "table",
           "group": [],
@@ -1509,7 +1509,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "table",
           "group": [],
@@ -1596,7 +1596,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "table",
           "group": [],
@@ -1678,7 +1678,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "table",
           "group": [],
@@ -1809,7 +1809,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "time_series",
           "group": [],
@@ -1897,7 +1897,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "table",
           "group": [],
@@ -1985,7 +1985,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "table",
           "group": [],
@@ -2073,7 +2073,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "table",
           "group": [],
@@ -2160,7 +2160,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "table",
           "group": [],
@@ -2274,7 +2274,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "time_series",
           "group": [],
@@ -2385,7 +2385,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "time_series",
           "group": [],
@@ -2496,7 +2496,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "time_series",
           "group": [],
@@ -2607,7 +2607,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "time_series",
           "group": [],
@@ -2712,7 +2712,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "time_series",
           "group": [],
@@ -2824,7 +2824,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "time_series",
           "group": [],
@@ -2936,7 +2936,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "time_series",
           "group": [],
@@ -3041,7 +3041,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "time_series",
           "group": [],
@@ -3074,7 +3074,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "time_series",
           "group": [],
@@ -3179,7 +3179,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "time_series",
           "group": [],
@@ -3284,7 +3284,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "time_series",
           "group": [],
@@ -3389,7 +3389,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "time_series",
           "group": [],
@@ -3497,7 +3497,7 @@
         {
           "datasource": {
             "type": "postgres",
-            "uid": "UxCzEGNNz"
+            "name": "PostgreSQL"
           },
           "format": "time_series",
           "group": [],
